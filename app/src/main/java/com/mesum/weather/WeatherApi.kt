@@ -5,6 +5,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -16,7 +17,7 @@ private const val BASE_URL = "http://api.weatherstack.com"
 private val requestInterceptor = Interceptor{
         chain ->
     val url = chain.request()
-        .url()
+        .url
         .newBuilder()
         .addQueryParameter("access_key", API_KEY)
         .build()
@@ -28,7 +29,6 @@ private val requestInterceptor = Interceptor{
 }
 
 val okHttpClient = OkHttpClient.Builder()
-
     .addInterceptor(requestInterceptor)
     .build()
 
@@ -38,6 +38,7 @@ private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
 private val retrofit: Retrofit by lazy {
     Retrofit.Builder()
+        .client(okHttpClient)
         .baseUrl(BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
@@ -46,12 +47,20 @@ private val retrofit: Retrofit by lazy {
 
 interface WeatherApiservice{
     @GET("current")
-    suspend fun getCurrentWeather(@Query("access_key")  accessKey: String = API_KEY, @Query("query") location:String): WeatherModel
+    suspend fun getCurrentWeather(  @Query("query") location:String): WeatherModel
 }
+
+interface WeatherApiService{
+    @GET("current")
+    fun getCurrentWeather(@Query("query") location: String): Call<WeatherModel>
+
+}
+
+
 
 object WeatherApi{
 
-    val weatherRequest : WeatherApiservice by lazy {
-        retrofit.create(WeatherApiservice::class.java)
+    val weatherRequest : WeatherApiService by lazy {
+        retrofit.create(WeatherApiService::class.java)
     }
 }
