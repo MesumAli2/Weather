@@ -23,12 +23,13 @@ class WeatherViewModel : ViewModel() {
     var city  = "fetch:ip"
 
     init {
-        getWeatherInfo(city)
+        getWeather(city)
     }
     fun getWeather(location : String) {
         viewModelScope.launch {
             try {
-           //   _WeatherData.value =  WeatherApi.weatherRequest.getCurrentWeather(location)
+               // _WeatherData.value?.set(0, WeatherApi.weatherRequest.getCurrentWeather(location))
+                _WeatherData.value = WeatherApi.weatherRequest.getCurrentWeather(location)
 
             }catch (e : Exception){
                 Log.d("WeatherViewModel", e.message.toString())
@@ -39,20 +40,19 @@ class WeatherViewModel : ViewModel() {
     }
 
 
-     fun getWeatherInfo(location: String){
+     /*fun getWeatherInfo(location: String){
         val call = WeatherApi.weatherRequest.getCurrentWeather(location)
         call.enqueue(object : Callback<WeatherModel>{
             override fun onResponse(call: Call<WeatherModel>, response: Response<WeatherModel>) {
-                _WeatherData.value = response.body()
+                _WeatherData?.value?.get(0) ?: response.body()!!
             }
 
             override fun onFailure(call: Call<WeatherModel>, t: Throwable) {
                     Log.d("fail", t.message.toString())
             }
-
         })
 
-    }
+    }*/
 
 
 

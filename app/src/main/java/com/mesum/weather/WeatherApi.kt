@@ -52,14 +52,13 @@ interface WeatherApiservice{
 
 interface WeatherApiService{
     @GET("current")
-    fun getCurrentWeather(@Query("query") location: String): Call<WeatherModel>
+  suspend fun getCurrentWeather(@Query("query") location: String): WeatherModel
 
 }
 
 
 
 object WeatherApi{
-
     val weatherRequest : WeatherApiService by lazy {
         retrofit.create(WeatherApiService::class.java)
     }

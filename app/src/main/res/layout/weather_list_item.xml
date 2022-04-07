@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/weatherFragment"
+    app:background="@color/lightWhite"
+
+>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="false">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="365dp"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="207dp"
+                android:layout_height="67dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="New York"
+                android:textColor="@color/black"
+                android:textSize="42sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/icon_image"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_below="@id/city"
+                android:layout_centerInParent="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.519"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/city" />
+
+            <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"
+                android:textSize="42sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weather_description" />
+
+            <TextView
+                android:id="@+id/temp_feellike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="center"
+
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/feelslike_textview" />
+
+            <TextView
+                android:id="@+id/uv_index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/uvindex_textview" />
+
+            <TextView
+                android:id="@+id/feelslike_textview"
+                android:layout_width="115dp"
+                android:layout_height="32dp"
+                android:fontFamily="@font/poppins_thin"
+                android:gravity="center"
+                android:text="Feels Like"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temp" />
+
+            <TextView
+                android:id="@+id/uvindex_textview"
+                android:layout_width="104dp"
+                android:layout_height="25dp"
+                android:fontFamily="@font/poppins_thin"
+                android:gravity="center"
+                android:text="UV"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hummidity" />
+
+            <TextView
+                android:id="@+id/humidity_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_thin"
+                android:gravity="center"
+                android:text="Humidity"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temp_feellike" />
+
+            <TextView
+                android:id="@+id/hummidity"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="13"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.513"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/humidity_textview" />
+
+            <TextView
+                android:id="@+id/weather_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="cloudy"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/icon_image" />
+
+            <TextView
+                android:id="@+id/wind_description"
+                android:layout_width="200dp"
+                android:layout_height="29dp"
+                android:fitsSystemWindows="false"
+                android:fontFamily="@font/poppins_thin"
+                android:gravity="center"
+                android:text="Wind Today"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/uv_index" />
+
+            <TextView
+                android:id="@+id/wind_direction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:text="NW"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/winddirection_textview"
+                app:layout_constraintTop_toBottomOf="@+id/winddirection_textview" />
+
+            <TextView
+                android:id="@+id/wind_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="112"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/wind_direction"
+                app:layout_constraintStart_toStartOf="@+id/windspeed_textview"
+                app:layout_constraintTop_toBottomOf="@+id/windspeed_textview" />
+
+            <TextView
+                android:id="@+id/wind_degree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="sans-serif-light"
+                android:text="60"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/wind_speed"
+                app:layout_constraintStart_toStartOf="@+id/winddegree_textview"
+                app:layout_constraintTop_toBottomOf="@+id/winddegree_textview" />
+
+            <TextView
+                android:id="@+id/winddirection_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:text="Direction"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/wind_description"
+                app:layout_constraintTop_toTopOf="@+id/windspeed_textview" />
+
+            <TextView
+                android:id="@+id/windspeed_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Speed"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/winddirection_textview"
+                app:layout_constraintTop_toBottomOf="@+id/wind_description" />
+
+            <TextView
+                android:id="@+id/winddegree_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Degree"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/windspeed_textview"
+                app:layout_constraintTop_toBottomOf="@+id/wind_description" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
