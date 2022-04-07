@@ -31,8 +31,10 @@ class WeatherAdapter : ListAdapter<WeatherModel,  WeatherAdapter.WeatherViewHold
             binding.uvIndex.text = it.current.uv_index.toString()
             binding.iconImage.load(it.current.weather_icons[0]){
 
+
                 transformations(RoundedCornersTransformation(23f))
             }
+
             binding.hummidity.text = "${it.current.humidity.toString()}%"
             binding.weatherDescription.text = it.current.weather_descriptions[0].toString()
             binding.windDirection.text = " ${it.current.wind_dir}"

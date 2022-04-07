@@ -1,27 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:id="@+id/weatherFragment"
     app:background="@color/lightWhite"
 
     tools:context=".WeatherFragment">
 
 
+  <ImageView
+      android:id="@+id/serach_icon"
+      android:layout_width="87dp"
+      android:layout_height="75dp"
+      android:foregroundGravity="right"
+      android:src="@drawable/search"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+      android:id="@+id/add_weather"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_toEndOf="@+id/serach_icon"
+      android:hint="add weather"
+      android:inputType="textPersonName"
+      android:visibility="invisible" />
+
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/weather_RecyclerView"
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="match_parent"
+      android:layout_alignParentBottom="true"
       android:orientation="horizontal"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0">
 
 
   </androidx.recyclerview.widget.RecyclerView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
